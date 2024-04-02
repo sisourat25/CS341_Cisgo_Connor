@@ -1,0 +1,98 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* black band b/t the header and body */
+.thick-hr {
+    border-top: 15px solid;
+    margin-top: 0px;
+}
+
+/* header: Add a Pin */
+.center {
+    text-align: center;
+}
+
+/* background of header */
+header {
+    height: 100px;
+    overflow: hidden;
+    background-color: rgba(30, 22, 86);
+    color: white;
+}
+
+/* log in button in corner */
+#btn-login {
+    display: inline;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    background-color: #f1f1f1;
+    background-color: rgba(241, 241, 241, 0.5);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+/* for home btn */
+#home {
+    display: inline;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    background-color: #f1f1f1;
+    background-color: rgba(241, 241, 241, 0.5);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+/* logo in header */
+header #logo {
+    width: 192px;
+    float: right;
+    display: inline;
+    object-fit: cover;
+    margin: 15px 50px 15px 50px;
+}
+
+/* copy right statement at the bottom */
+footer {
+    background-color: black;
+    color: grey;
+    text-align: center;
+    padding: 15px;
+    position: relative; 
+    bottom: 0px;
+    width: 100%;
+}
+
+/* form container */
+.container{
+    background-color: #ebe8fc;
+    height: 100%;
+    width: 100%;
+}
+
+/* Formatting the radio buttons for School/Department */
+.radioDepo {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+/* header */
+h1 {
+    color: white;
+    margin: 15%;
+}

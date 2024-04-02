@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="stylesheets/form.css" rel="stylesheet" type="text/css" />
+    <!-- Link to CSS for Bootstrap -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+    <style>
+        #formTitle h1 {
+            color: black;
+        }
+
+        #suggestions {
+            display: none;
+        }
+    </style>
+
+
+</head>
+<!-- Todo: Fix up the format to look nice  method="post" -->
+
+<body>
+    <header>
+        <button type="button" id="home" onclick="document.location='index.html'">Home</button>
+        <!-- login in button for admin -->
+        <div class="login"><button id="btn-login"
+                onclick="document.location='/loginTest.html'">Log in</button></div>
+        <img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo">
+    </header>
+    <hr class="thick-hr">
+
+    <main class="container">
+
+
+        <div id="formTitle">
+            <h1 class="center">Add a Pin</h1>
+        </div>
+        <div class="addPin">
+            <form id="databaseForm">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="event">Event:</label><br>
+                <input type="text" id="event" name="event" required><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="location">Location:</label><br>
+                <input type="text" id="location" name="location" required>
+                <button type="button" id="searchLocation">Search Location</button>
+                <div id="suggestions"></div><br>
+
+                <label for="department">Department:</label><br>
+                <select id="department" name="department" required>
+                    <option value="Shiley School of Engineering">Shiley School of Engineering</option>
+                    <option value="Pamplin School of Business">Pamplin School of Business</option>
+                    <option value="School of Education">School of Education</option>
+                    <option value="School of Nursing and Health Innovations">School of Nursing and Health
+                        Innovations
+                    </option>
+                    <option value="College of Arts and Sciences">College of Arts and Sciences</option>
+                    <option value="Other">Other</option>
+                </select><br>
+
+                <label for="type">Type:</label><br>
+                <select id="type" name="type" required>
+                    <option value="Teaching">Teaching</option>
+                    <option value="Research">Research</option>
+                    <option value="Working">Working</option>
+                    <option value="Volunteer">Volunteer</option>
+                    <option value="Other">Other</option>
+                </select><br>
+
+                <label for="status">Status:</label><br>
+                <select id="status" name="status" required>
+                    <option value="Past">Past</option>
+                    <option value="Ongoing">Ongoing</option>
+                </select><br>
+
+                <label for="startdate">Start Date:</label><br>
+                <input type="date" id="startdate" name="startdate" required><br>
+
+                <label for="enddate">End Date:</label><br>
+                <input type="date" id="enddate" name="enddate"><br>
+
+                <label for="description">Description:</label><br>
+                <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+
+                <button type="submit" >Submit</button>
+            </form>
+        </div>
+
+        <script src="javascripts/formScript.js"></script>
+        
+
+
+        <footer>Copyright &copy; Univerity of Portland. All Rights Reserved</footer>
+
+
+</body>
+
+</html>

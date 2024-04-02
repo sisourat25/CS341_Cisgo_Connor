@@ -1,0 +1,88 @@
+/* the purple block at the top */
+header {
+  height: 100px;
+  overflow: hidden;
+  background-color: rgba(30, 22, 86);
+  color: white;
+}
+
+header h1 {
+  display: inline-block;
+  color: lavender;
+}
+
+/* written title at the top */
+#projTitle {
+  margin-top: 10px;
+  padding-left: 500px;
+  padding-right: 500px;  
+  font-size: 50px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* university of portland logo in the corner */
+header #logo {
+  width: 192px;
+  float: right;
+  display: block;
+  object-fit: cover;
+  margin: 15px 50px 15px 50px;
+}
+
+/* temp title */
+body h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+#home {
+  display: inline;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  background-color: rgba(241, 241, 241, 0.5);
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+p {
+  margin-left: 250px;
+  margin-right: 250px;
+  margin-top: 100px;
+  background-color:rgba(255, 255, 255, 0.877);
+  color: black;
+  padding: 30px 30px 30px 30px;
+}
+
+body #peopleCampus {
+  margin-left: 550px;
+  margin-right: 500px;
+}
+
+body #birdViewCampus {
+  margin-left: 450px;
+  margin-right: 500px;
+}
+
+/* bottom of page copyright statement */
+footer {
+  background-color: black;
+  color: grey;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* background */
+body {
+  background-image: url('https://www.merocollege.com/wp-content/uploads/2017/11/9-1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}

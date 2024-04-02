@@ -1,0 +1,73 @@
+
+/* trying to change just the title */
+#loginTitle {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* trying to change the form */
+#loginForm {
+  text-align: center;
+  display: inline-block;
+}
+
+
+/* Purple header*/
+header {
+  height: 100px;
+  overflow: hidden;
+  background-color: rgba(30, 22, 86);
+  color: white;
+}
+
+/* University of portland logo in corner*/
+header #logo {
+  width: 192px;
+  float: right;
+  display: block;
+  object-fit: cover;
+  margin: 15px 50px 15px 50px;
+  text-align: center;
+}
+
+/* for home btn */
+#home {
+  display: inline;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  background-color: #f1f1f1;
+  background-color: rgba(241, 241, 241, 0.5);
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
+  color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+/* trying to change the div again */
+div.login {
+  display: block;
+  text-align: center;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 250px;
+  border: 5px dotted black;
+  padding: 10px 10px 10px 10px;
+  max-width: 25%;
+}
+
+/* bottom of page copyright statement */
+footer {
+  background-color: black;
+  color: grey;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}
+

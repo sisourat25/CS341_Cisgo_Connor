@@ -11,9 +11,12 @@
 	</head>
 	<body>
 		<header>
-			<button type="button" id="home" onclick="document.location='index.html'">Home</button>
 			<img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo">
 		</header>
+		<div id="nav_buttons">
+			<button class="btn" type="button" id="back" onclick="document.location='Form.html'">Back</button>
+			<button class="btn" type="button" id="home" onclick="document.location='index.html'">Home</button>
+		</div>
 		<div class="login">
 			<h1 id="loginTitle">Admin Login</h1>
 			<form id="loginForm" name="loginForm" action="/admin" method="post">
@@ -28,9 +31,13 @@
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required><br>
 				<br>
-				<input id="loginButton" type="submit" value="Log in">
+				<input class="btn" id="loginButton" type="submit" value="Log in">
 			</form>
 		</div>
-		<footer>Copyright &copy; Univerity of Portland. All Rights Reserved</footer>
+		<footer>
+			<a class="footer">Copyright &copy; Univerity of Portland. All Rights Reserved</a>
+			<br>
+			<a class="footer">Contact us: CISGOAdmin@up.edu</a>
+		  </footer>
 	</body>
 </html>

@@ -1,0 +1,13 @@
+
+JS
+- adminTableAdminStatusRoute.js
+- adminTableApprovedROute.js
+- adminTableEditRoute.js
+- adminTablePendingRoute.js
+- dbms.js
+- formSubmitRoute.js X
+- index.js
+- orders.js
+- pointData.js
+- session.js
+- users.js

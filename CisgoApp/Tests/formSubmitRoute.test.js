@@ -1,0 +1,56 @@
+// Import required modules
+const express = require('express');
+const supertest = require('supertest');
+const db = require('../routes/dbms'); // Import the database module
+const neworderRouter = require('../routes/formSubmitRoute');
+
+// Create an instance of Express app
+const app = express();
+app.use(express.json());
+app.use('/neworder', neworderRouter);
+
+// Mock the dbquery function
+jest.mock('../routes/dbms', () => ({
+  dbquery: jest.fn(),
+}));
+
+describe('POST /neworder', () => {    
+  it('should add a new order to the database', async () => {
+    // Mock request body
+    const requestBody = {
+      name: 'John Doe',
+      event: 'Some Event',
+      email: 'john@example.com',
+      city: 'New York',
+      country: 'USA',
+      coorlong: '40.7128',
+      coorlat: '-74.0060',
+      department: 'IT',
+      type: 'Type A',
+      status: 'Pending',
+      startdate: '2024-03-28',
+      enddate: '2024-03-29',
+      description: 'Description of the order',
+    };
+
+    // Mock dbquery function to call the callback with no error
+    db.dbquery.mockImplementation((query, callback) => {
+      callback(null, 'Mocked result');
+    });
+
+    // Send a POST request to the /neworder route with the mock request body
+    const response = await supertest(app)
+      .post('/neworder')
+      .send(requestBody);
+
+    // Expect a 200 OK response
+    expect(response.status).toBe(200);
+
+    // Expect the dbquery function to have been called with the correct query
+    expect(db.dbquery).toHaveBeenCalledWith(expect.any(String), expect.any(Function));
+
+    // Expect the success message to be logged
+    //expect(console.log).toHaveBeenCalledWith('New order added successfully.');
+
+  });
+});

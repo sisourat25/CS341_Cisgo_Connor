@@ -66,9 +66,14 @@ $(document).ready(function() {
             formData.city = city;
             formData.country = country;
 
+            console.log(formData);
+
             // Send a POST request to the server to add the new order
             $.post('/formSubmitRoute', formData, function(response) {
                 $('#databaseForm')[0].reset(); // Reset the form after submission
+
+                // Redirect to formConfirmation.html after successful submission
+                window.location.href = 'formConfirmation.html';
             });
         });
     });

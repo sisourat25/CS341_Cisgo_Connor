@@ -2,111 +2,142 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <link href="stylesheets/form.css" rel="stylesheet" type="text/css" />
-    <!-- Link to CSS for Bootstrap -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-
-    <style>
-        #formTitle h1 {
-            color: black;
-        }
-
-        #suggestions {
-            display: none;
-        }
-    </style>
-
+  <title>New Location Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="stylesheets/form.css" rel="stylesheet" type="text/css" />
+  <!-- Link to CSS for Boostrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
-<!-- Todo: Fix up the format to look nice  method="post" -->
-
 <body>
     <header>
-        <button type="button" id="home" onclick="document.location='index.html'">Home</button>
-        <!-- login in button for admin -->
-        <div class="login"><button id="btn-login"
-                onclick="document.location='/loginTest.html'">Log in</button></div>
-        <img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo">
+      <h1>New Location Form</h1>
+      <img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo">
     </header>
-    <hr class="thick-hr">
 
-    <main class="container">
+    <!-- navigation buttons, login and home -->
+    <div id="nav_buttons">
+      <button class="btn" type="button" id="login-button" onclick="document.location='/loginTest.html'">Log in</button>
+      <button class="btn" type="button" id="home-button" onclick="document.location='index.html'">Home</button>
+    </div><br>
 
+    <p class="instructions" id="first-instruct">
+      If you have a global educational opportunity you'd like to share, submit a
+      location here to be added to the map. 
+    </p>
 
-        <div id="formTitle">
-            <h1 class="center">Add a Pin</h1>
-        </div>
-        <div class="addPin">
-            <form id="databaseForm">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br>
+    <div class="container">
+      <p class="instructions">
+        Please fill out all required fields to submit a location for our map. 
+        All prompts below are likely to be displayed publicly. Follow specific instructions for each field, 
+        and submit when finished. After inputting the required information on the form, press submit. 
+        An administrator will then approve your submission, and your pin will show up on the map. 
+      </p>
+      <form id="databaseForm">
+        <p>*Contact Information: Please enter your contact information. This will be displayed.</p>
+        <table>
+          <tr>
+            <th><label for="name">Contact Name: </label></th>
+            <th><input type="text" id="name" name="name" placeholder="John Doe..." required></th>
+            <th><label for="email">Contact Email: </label></th>
+            <th><input type="email" id="email" name="email" placeholder="email@up.edu..." required></th>
+          </tr>
+          <tr><th><br></th></tr>
 
-                <label for="event">Event:</label><br>
-                <input type="text" id="event" name="event" required><br>
+          <tr>
+            <th><label for="event">Event Title:</label></th>
+            <th><input type="text" id="event" name="event" placeholder="Study Abroad..." required></th>
+          </tr>
+          <tr><th><br></th></tr>
+        </table>
+            <p>
+              *Location: Please specify where this opportunity took place.
+              Type the city name or country so that the proper 
+              location name appears on screen.
+            </p>
+        <table>
+          <tr>
+            <th><label for="location">Location:</label><br></th>
+            <th><input type="text" id="location" name="location" required></th>
+            <th>  </th>
+            <th><button class="btn" type="button" id="searchLocation">Search Location</button></th>
+          </tr>
+        </table>
+        <div id="suggestions"></div>
+        <br>
+          <p>
+            *Opportunity Type: Please specify what type of opportunity took place.
+          </p>
+        <table>
+          <tr>
+            <th><label for="type">Opportunity Type:</label><br></th>
+            <th><select id="type" name="type" required>
+              <option value="Teaching">Teaching</option>
+              <option value="Research">Research</option>
+              <option value="Working">Working</option>
+              <option value="Volunteer">Volunteer</option>
+              <option value="Other">Other</option>
+            </select></th>
+          </tr>
+          <tr>
+            <th><label for="department">School Department: </label></th>
+              <th><select id="department" name="department" required>
+                <option value="Shiley School of Engineering">Shiley School of Engineering</option>
+                <option value="Pamplin School of Business">Pamplin School of Business</option>
+                <option value="School of Education">School of Education</option>
+                <option value="School of Nursing and Health Innovations">School of Nursing and Health Innovations</option>
+                <option value="College of Arts and Sciences">College of Arts and Sciences</option>
+                <option value="Other">Other</option>
+            </select></th>
+          </tr>
+          <tr><th><br></th></tr>
+        </table>
+          <p>
+             *Status: Please specify if this opportunity is currently ongoing
+             or has happened in the past.
+          </p>
+        <table>
+          <tr>
+            <th><label for="status">Status: </label></th>
+            <th><select id="status" name="status" required>
+              <option value="Past">Past</option>
+              <option value="Ongoing">Ongoing</option>
+            </selec>
+            <th>    </th>
+            <th><label for="startdate">Start Date: </label></th>
+            <th><input type="date" id="startdate" name="startdate" required></th>
+            <th>  </th>
+            <th><label for="enddate">End Date:</label></th>
+            <th><input type="date" id="enddate" name="enddate"></th>
+            </th>
+          </tr>
+        </table>
+        <br>
+        <label id="desc-label" for="description">Please write a brief (2-3 sentence) description of the opportunity. 
+          You can add any links connecting to more resources or information, 
+          other faculty or admin that contributed, etc.  </label>
+        <br><br>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="Start typing..." ></textarea>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br>
+        <br><br>
 
-                <label for="location">Location:</label><br>
-                <input type="text" id="location" name="location" required>
-                <button type="button" id="searchLocation">Search Location</button>
-                <div id="suggestions"></div><br>
+        <button id="submit_btn" class="btn" type="button submit" >Submit</button>
+    </form>
+    <br>
+    </div>
+    <br><br><br><br>
+    <br><br><br><br>
 
-                <label for="department">Department:</label><br>
-                <select id="department" name="department" required>
-                    <option value="Shiley School of Engineering">Shiley School of Engineering</option>
-                    <option value="Pamplin School of Business">Pamplin School of Business</option>
-                    <option value="School of Education">School of Education</option>
-                    <option value="School of Nursing and Health Innovations">School of Nursing and Health
-                        Innovations
-                    </option>
-                    <option value="College of Arts and Sciences">College of Arts and Sciences</option>
-                    <option value="Other">Other</option>
-                </select><br>
+    <footer>
+      <a class="footer">Copyright &copy; Univerity of Portland. All Rights Reserved</a>
+      <br>
+      <a class="footer">Contact us: CISGOAdmin@up.edu</a>
+    </footer>
 
-                <label for="type">Type:</label><br>
-                <select id="type" name="type" required>
-                    <option value="Teaching">Teaching</option>
-                    <option value="Research">Research</option>
-                    <option value="Working">Working</option>
-                    <option value="Volunteer">Volunteer</option>
-                    <option value="Other">Other</option>
-                </select><br>
-
-                <label for="status">Status:</label><br>
-                <select id="status" name="status" required>
-                    <option value="Past">Past</option>
-                    <option value="Ongoing">Ongoing</option>
-                </select><br>
-
-                <label for="startdate">Start Date:</label><br>
-                <input type="date" id="startdate" name="startdate" required><br>
-
-                <label for="enddate">End Date:</label><br>
-                <input type="date" id="enddate" name="enddate"><br>
-
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
-
-                <button type="submit" >Submit</button>
-            </form>
-        </div>
-
-        <script src="javascripts/formScript.js"></script>
-        
-
-
-        <footer>Copyright &copy; Univerity of Portland. All Rights Reserved</footer>
-
-
+    <!-- scripts -->
+    <script src="javascripts/formScript.js"></script>
 </body>
-
 </html>

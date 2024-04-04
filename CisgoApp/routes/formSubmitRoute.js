@@ -42,6 +42,9 @@ router.post('/', function(req, res) {
             console.log("Error adding new order:", err);
         } else {
             console.log("New order added successfully.");
+	    //send a resonse
+	    //res.send
+            res.send(results);
         }
      });
 

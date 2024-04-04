@@ -23,8 +23,10 @@ router.post('/', function(req, res) {
     db.dbquery(query, function(err, results) {
         if (err) {
             console.log("Error adding new order:", err);
+            return res.status(500).send({error: 'Error editing table'});
         } else {
             console.log("New order added successfully.");
+            res.send(results);
         }
      });
 

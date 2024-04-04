@@ -70,7 +70,7 @@ am5.ready(function () {
     });
 
     continentSeries.mapPolygons.template.states.create("hover", {
-      fill: root.interfaceColors.get("primaryButtonActive")
+      fill: am5.color(0x007A87)
     });
 
     // Set up zooming in on clicked continent
@@ -97,81 +97,55 @@ am5.ready(function () {
     });
 
     countrySeries.mapPolygons.template.states.create("hover", {
-      fill: root.interfaceColors.get("primaryButtonActive")
+      fill: am5.color(0x007A87)
     });
-
-    // Nate modified code begins:
 
     // Create polygon series for possible destinations
     var pointSeries = chart.series.push(
       am5map.MapPointSeries.new(root, {
-        visible: false
-      })
-    );
-
-    //not sure what this does.
-    modal = am5.Modal.new(root, {});
-
-    /** 
-     * when status button becomes active (is clicked)...
-     * load the city data from the db (allOpps)
-     * update map (FILTER HERE)
-     */
-
-    $.getJSON('/orders', function (ret) {
-      var cities = [];
-        for(var i = 0; i < allOpps.length; i++) {
-          if(allOpps[i].STATUS == "all") {
-            var obj = {
-              geometry: { type: 'Point', 
-                          coordinates: [allOpps[i].COORLAT, allOpps[i].COORLONG] },
-              title:  allOpps[i].EVENT, //name
-              id: allOpps[i].NUMID //id number
-            };
-        
-            cities[i] = obj;
+        visible: true,
+        tooltip: am5.Tooltip.new(root, {
+          getText: function(ev) {
+            return ev.target.dataItem.dataContext.tooltipText;
           }
-        }
-      pointSeries.data.setAll(cities);
-    });
-
-    // GeoJSON data
-    var cities = {
-      "type": "FeatureCollection",
-      "features": [{
-        "type": "Feature",
-        "properties": { "name": "New York City" },
-        "geometry": { "type": "Point", 
-                      "coordinates": [-73.778137, 40.641312] }
-      }, {
-        "type": "Feature",
-        "properties": { "name": "London" },
-        "geometry": { "type": "Point",
-                      "coordinates": [-0.454296, 51.470020] }
-      }, {
-        "type": "Feature",
-        "properties": { "name": "Beijing " },
-        "geometry": { "type": "Point",
-                      "coordinates": [116.597504, 40.072498] }
-        }]
-    };
-
-    // Create point series
-    var pointSeries = chart.series.push(
-      am5map.MapPointSeries.new(root, {
-        geoJSON: cities
+        })
       })
     );
+
+    
+    
+
+    // Fetch location data from the server
+    $.getJSON('/orders', function (data) {
+      // Clear existing points
+      pointSeries.data.clear();
+    
+      // Iterate through the data and create map points
+      data.forEach(function (location) {
+        // Create a map point for each location
+        var mapPoint = {
+          geometry: { type: 'Point', coordinates: [location.COORLAT, location.COORLONG] },
+          title: location.CITY, // Use city name as title
+          id: location.NUMID, // Use unique ID for the point
+          tooltipText: location.CITY, // Set tooltip text to city name
+          info: location
+
+        };
+    
+        // Add the map point to the series
+        pointSeries.data.push(mapPoint);
+      });
+    });
 
     // appearance of a pin on the map:
     // add the definition for a circle pin to pointSeries
     
     pointSeries.bullets.push(function () {
       var circle = am5.Circle.new(root, {
-        radius: 5,
-        tooltipText: "{name}",
+        radius: 10,
+        tooltipText: "{title}",
         tooltipY: 0,
-        fill: am5.color(0xffba00),
+        fill: am5.color(0xEEAF30),
         stroke: root.interfaceColors.get("background"),
         strokeWidth: 2,
         label: "hi"
@@ -180,6 +154,38 @@ am5.ready(function () {
         console.log("Clicked on a bullet!", ev.target.dataItem.dataContext.name);
         //zooms in
         pointSeries.zoomToDataItem(ev.target.dataItem, 50);
+
+
+        var dataContext = ev.target.dataItem.dataContext.info;
+
+        // Construct HTML content for the modal
+        var modalContent = "<div>";
+        modalContent += "<p><strong>Name:</strong> " + dataContext.NAME + "</p>";
+        modalContent += "<p><strong>Event Name:</strong> " + dataContext.EVENT + "</p>";
+        modalContent += "<p><strong>Dates:</strong> " + dataContext.STARTDATE + " to " + dataContext.ENDDATE + "</p>";
+        modalContent += "<p><strong>City:</strong> " + dataContext.CITY + "</p>";
+        modalContent += "<p><strong>Country:</strong> " + dataContext.COUNTRY + "</p>";
+        modalContent += "<p><strong>Type:</strong> " + dataContext.TYPE + "</p>";
+        modalContent += "<p><strong>Department:</strong> " + dataContext.DEPARTMENT + "</p>";
+        modalContent += "</div>";
+
+        // Update the content of the modal
+        document.getElementById("eventDetails").innerHTML = modalContent;
+
+        // Display the modal
+        var modal = document.getElementById("eventModal");
+        modal.style.display = "block";
+
+        // Add event listener to close the modal when the close button is clicked
+        var closeBtn = document.getElementsByClassName("close")[0];
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
+
+
+
       });
       return am5.Bullet.new(root, {
         sprite: circle
@@ -205,13 +211,13 @@ am5.ready(function () {
       chart.goHome();
       continentSeries.show();
       countrySeries.hide();
-      pointSeries.hide();
       homeButton.hide();
     });
 
-
     //sessionCheck();
   }); // end am5.ready()
+
+  
 
 
 /**

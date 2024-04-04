@@ -196,3 +196,7 @@ html, body {
       margin: 15px 50px 15px 50px;
   }
   
+  .footer {
+    color: white;
+    text-align: center;
+  }

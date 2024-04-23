@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             { title: "ID", field: "numid"},
             { title: "Name", field: "name", editor: "input" }, 
             { title: "Event", field: "event", editor: "input" },
+            { title: "Display Email", field: "emailcheck", editor: "input" },
             { title: "Email", field: "email", editor: "input" },
             { title: "City", field: "city", editor: "input" },
             { title: "Country", field: "country", editor: "input"},
@@ -16,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
             { title: "Department", field: "department", editor: "input" },
             { title: "Type", field: "type", editor: "input" },
             { title: "Status", field: "status", editor: "input" },
-            { title: "Start Date", field: "startdate", editor: "input" },
-            { title: "End Date", field: "enddate", editor: "input" },
+            { title: "Start Month", field: "startmonth", editor: "input" },
+            { title: "Start Year", field: "startyear", editor: "input" },
+            { title: "End Month", field: "endmonth", editor: "input" },
+            { title: "End Year", field: "endyear", editor: "input" },
         ],
         cellEdited: function(cell) { // Callback function when cell is edited
             
@@ -49,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
-    // Add event listener to the "Approve" button
+    // Add event listener to the "Pending" button
     document.getElementById("pendingButton").addEventListener("click", function() {
         // Get the selected rows
         var selectedRows = table.getSelectedRows();
@@ -80,6 +83,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
+        // Add event listener to the "Delete" button to delete the rows from the database
+        document.getElementById("deleteApprovedButton").addEventListener("click", function() {
+            // Get the selected rows
+            var selectedRows = table.getSelectedRows();
+    
+            // Extract numid of selected rows and log them
+            var selectedNumids = selectedRows.map(row => row.getData().numid);
+            console.log("Selected Numids to delete:", selectedNumids);
+    
+            if (selectedNumids.length !== 0) {
+    
+                // Send a POST request to the server for each numid
+                $.post('/adminTableDeleteRoute', { numids: selectedNumids.join(',') }, function(response) {
+                });
+    
+                location.reload();
+            }
+    
+    
+        });
+
     
 
     // Issue a GET request to fetch data from the server using the same endpoint '/orders'
@@ -95,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 numid: item.NUMID,
                 name: item.NAME,
                 event: item.EVENT,
+                emailcheck: item.EMAILCHECK,
                 email: item.EMAIL,
                 city: item.CITY,
                 country: item.COUNTRY,
@@ -103,8 +128,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 department: item.DEPARTMENT,
                 type: item.TYPE,
                 status: item.STATUS,
-                startdate: item.STARTDATE,
-                enddate: item.ENDDATE
+                startmonth: item.STARTMONTH,
+                startyear: item.STARTYEAR,
+                endmonth: item.ENDMONTH,
+                endyear: item.ENDYEAR
             });
         });
 

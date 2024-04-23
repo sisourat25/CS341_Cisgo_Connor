@@ -1,0 +1,13 @@
+Performance testing bugs:
+
+1.) Changing the status of many points that are selected at once
+
+Problem: When the admin is attempting to change the status from pending to approved or vice versa, 
+of many points (more than 5) at a single time, the admin page becomes frozen and the user must refresh.
+
+Perceived Source of Problem: In the js to change the status, it loops through each point with the specified numid
+and sends that to the route to change it. The loop time that it is in the loop is too short compared to what the
+route is actually doing. This results in inconsistencies.
+
+Intended fix: Instead of looping through each point and changing the status iteratively, we can send a list of the ones
+that must be directly to the route. This way, the route can change the status of the points all at once. 

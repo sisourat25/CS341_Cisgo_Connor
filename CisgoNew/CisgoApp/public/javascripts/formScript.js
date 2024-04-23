@@ -1,4 +1,22 @@
 $(document).ready(function() {
+
+    // Populate start date year select
+    var currentYear = new Date().getFullYear();
+    for (var i = currentYear; i >= 1900; i--) {
+        $('#startdate_year').append($('<option>', {
+            value: i,
+            text: i
+        }));
+    }
+
+    // Populate end date year select
+    for (var i = currentYear + 10; i >= 1900; i--) {
+        $('#enddate_year').append($('<option>', {
+            value: i,
+            text: i
+        }));
+    }
+
     // Function to fetch suggestions based on input location
     function fetchSuggestions(location) {
         var url = 'https://nominatim.openstreetmap.org/search?q=' + location + '&format=json&limit=5';
@@ -41,18 +59,20 @@ $(document).ready(function() {
         
         // Collect form data
         var formData = {
+
             name: $('#name').val(),
             event: $('#event').val(),
             email: $('#email').val(),
+            emailcheck: $('#display_email').val(),
             city: '', // Placeholder for city, to be filled later
             country: '', // Placeholder for country, to be filled later
-            coorlong: '',
-            coorlat: '',
             department: $('#department').val(),
             type: $('#type').val(),
             status: $('#status').val(),
-            startdate: $('#startdate').val(),
-            enddate: $('#enddate').val(),
+            startmonth: $('#startdate_month').val(),
+            startyear: $('#startdate_year').val(),
+            endmonth: $('#enddate_month').val(),
+            endyear: $('#enddate_year').val(),
             description: $('#description').val()
         };
 

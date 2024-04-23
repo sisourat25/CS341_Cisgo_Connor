@@ -20,7 +20,7 @@
 
     <!-- navigation buttons, login and home -->
     <div id="nav_buttons">
-      <button class="btn" type="button" id="login-button" onclick="document.location='/loginTest.html'">Log in</button>
+      <button class="btn" type="button" id="login-button" onclick="document.location='/loginTest.html'">Admin Log in</button>
       <button class="btn" type="button" id="home-button" onclick="document.location='index.html'">Home</button>
     </div><br>
 
@@ -44,6 +44,13 @@
             <th><input type="text" id="name" name="name" placeholder="John Doe..." required></th>
             <th><label for="email">Contact Email: </label></th>
             <th><input type="email" id="email" name="email" placeholder="email@up.edu..." required></th>
+            <th><label for="display_email">Would you like your email displayed? </label></th>
+            <th>
+              <select id="display_email" name="display_email" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </th>
           </tr>
           <tr><th><br></th></tr>
 
@@ -105,13 +112,59 @@
             <th><select id="status" name="status" required>
               <option value="Past">Past</option>
               <option value="Ongoing">Ongoing</option>
-            </selec>
+            </select>
+          </tr>
+          <tr>
             <th>    </th>
-            <th><label for="startdate">Start Date: </label></th>
-            <th><input type="date" id="startdate" name="startdate" required></th>
-            <th>  </th>
-            <th><label for="enddate">End Date:</label></th>
-            <th><input type="date" id="enddate" name="enddate"></th>
+            <th>
+              <label for="startdate_month">Start Month: </label>
+              <select id="startdate_month" name="startdate_month" required>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+              </select>
+          </th>
+          <th>
+              <label for="startdate_year">Start Year: </label>
+              <select id="startdate_year" name="startdate_year" required>
+                  <!-- Options for start date years will be populated dynamically -->
+              </select>
+          </th>
+          </tr>
+          <tr>
+          <th> </th>
+          <th>
+              <label for="enddate_month">End Month: </label>
+              <select id="enddate_month" name="enddate_month" required>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+              </select>
+          </th>
+          <th>
+              <label for="enddate_year">End Year: </label>
+              <select id="enddate_year" name="enddate_year" required>
+                  <!-- Options for end date years will be populated dynamically -->
+              </select>
+          </th>
             </th>
           </tr>
         </table>

@@ -12,7 +12,9 @@ var adminPendingRouter = require('./routes/adminTablePendingRoute'); // Import a
 var adminApprovedRouter = require('./routes/adminTableApprovedRoute'); // Import adminTablePendingRoute.js module
 var adminEditRouter = require('./routes/adminTableEditRoute'); // Import adminTableEditRoute.js module
 var adminStatusRouter = require('./routes/adminTableAdminStatusRoute'); // Import adminTableAdminStatusRoute.js module
+var adminDeleteRouter = require('./routes/adminTableDeleteRoute'); // Import adminTableDeleteRoute.js module
 var formSubmitRouter = require('./routes/formSubmitRoute'); // Import formSubmitRoute.js module
+
 var pointData = require('./routes/pointData');
 var adminRouter = require('./routes/html/admin');
 
@@ -37,6 +39,7 @@ app.use('/adminTablePendingRoute', adminPendingRouter); // Use adminTablePending
 app.use('/adminTableApprovedRoute', adminApprovedRouter); // Use adminTableApprovedRoute.js to handle requests to /adminTableApprovedRoute
 app.use('/adminTableEditRoute', adminEditRouter); // Use adminTableEditRoute.js to handle requests to /adminTableEditRoute
 app.use('/adminTableAdminStatusRoute', adminStatusRouter); // Use adminTableAdminStatusRoute.js to handle requests to /adminTableAdminStatusRoute
+app.use('/adminTableDeleteRoute', adminDeleteRouter); // Use adminTableDeleteRoute.js to handle requests to /adminTableDeleteRoute
 app.use('/formSubmitRoute', formSubmitRouter); // Use formSubmitRoute.js to handle requests to /formSubmitRoute
 
 app.use('/pointSeries', pointData);

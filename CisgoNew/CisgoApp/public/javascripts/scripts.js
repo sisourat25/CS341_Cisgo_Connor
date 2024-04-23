@@ -22,7 +22,14 @@ $(document).ready(function() {
             // Populate the card with data
             card.append('<p class="card-name">Name: ' + item.NAME + '</p>');
             card.append('<p class="card-loc">Location: ' + item.CITY + ', ' + item.COUNTRY + '</p>');
-            card.append('<p class="card-email">Email: ' + item.EMAIL + '</p>');
+
+            if(item.EMAILCHECK === 'No'){
+                card.append('<p class="card-email">Email: ----' + '</p>');
+            }
+            else{
+                card.append('<p class="card-email">Email: ' + item.EMAIL + '</p>');
+            }
+            
             card.append('<p class="card-description">Description: ' + item.DESCRIPTION + '</p>');
 
             // Append the card to the container

@@ -11,14 +11,22 @@ const db = require('./dbms'); // Import the database module
 router.post('/', function(req, res) {
 
     // get the values from the order form 
-    const { name, event, email, city, country, coorlong, coorlat, department, type, status, startdate, enddate, description } = req.body;
+    const { name, event, emailcheck, email, city, country, coorlong, coorlat, department, type, status, startmonth, startyear, endmonth, endyear, description } = req.body;
+
+    var tempString = event;
+
+    if(tempString.contains("'")){
+        var indexPosition = tempString.indexOf("'");
+        tempString = tempString.slice(0, indexPosition)+ stringToAdd + origString.slice(indexPosition);
+    }
 
     
     // query for inserting into database
-    const query = "INSERT INTO CISGO (ADMINSTATUS, NAME, EVENT, EMAIL, CITY, COUNTRY, COORLAT, COORLONG, DEPARTMENT, TYPE, STATUS, STARTDATE, ENDDATE, DESCRIPTION) VALUES ('Pending', " +
+    const query = "INSERT INTO CISGO (ADMINSTATUS, NAME, EVENT, EMAILCHECK, EMAIL, CITY, COUNTRY, COORLAT, COORLONG, DEPARTMENT, TYPE, STATUS, STARTMONTH, STARTYEAR, ENDMONTH, ENDYEAR, DESCRIPTION) VALUES ('Pending', " +
 
             "'" + name + "'," +
             "'" + event + "'," +
+            "'" + emailcheck + "'," +
             "'" + email + "'," +
             "'" + city + "'," +
             "'" + country + "'," +
@@ -27,8 +35,10 @@ router.post('/', function(req, res) {
             "'" + department + "'," +
             "'" + type + "'," +
             "'" + status + "'," +
-            "'" + startdate + "'," +
-            "'" + enddate + "'," +
+            "'" + startmonth + "'," +
+            "'" + startyear + "'," +
+            "'" + endmonth + "'," +
+            "'" + endyear + "'," +
             "'" + description + "')" 
 
 

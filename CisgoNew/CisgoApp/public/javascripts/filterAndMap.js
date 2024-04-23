@@ -100,9 +100,24 @@ am5.ready(function () {
       fill: am5.color(0x007A87)
     });
 
+
+    //Create clustered series to prevent overlap
+    /*var clusteredPointSeries = chart.series.push(
+      am5map.ClusteredPointSeries.new(root, {
+        minDistance: 30,
+        scatterDistance: 10,
+        scatterRadius: 10,
+        stopClusterZoom: 0.9
+      })
+    );
+*/
     // Create polygon series for possible destinations
     var pointSeries = chart.series.push(
-      am5map.MapPointSeries.new(root, {
+      am5map.ClusteredPointSeries.new(root, {
+        minDistance: 15,
+        scatterDistance: 10,
+        scatterRadius: 10,
+        stopClusterZoom: 0,
         visible: true,
         tooltip: am5.Tooltip.new(root, {
           getText: function(ev) {
@@ -142,7 +157,7 @@ am5.ready(function () {
     
     pointSeries.bullets.push(function () {
       var circle = am5.Circle.new(root, {
-        radius: 10,
+        radius: 5,
         tooltipText: "{title}",
         tooltipY: 0,
         fill: am5.color(0xEEAF30),
@@ -153,7 +168,7 @@ am5.ready(function () {
       circle.events.on("click", function(ev) {
         console.log("Clicked on a bullet!", ev.target.dataItem.dataContext.name);
         //zooms in
-        pointSeries.zoomToDataItem(ev.target.dataItem, 50);
+        pointSeries.zoomToDataItem(ev.target.dataItem, 5);
 
 
         var dataContext = ev.target.dataItem.dataContext.info;
@@ -162,11 +177,12 @@ am5.ready(function () {
         var modalContent = "<div>";
         modalContent += "<p><strong>Name:</strong> " + dataContext.NAME + "</p>";
         modalContent += "<p><strong>Event Name:</strong> " + dataContext.EVENT + "</p>";
-        modalContent += "<p><strong>Dates:</strong> " + dataContext.STARTDATE + " to " + dataContext.ENDDATE + "</p>";
+        modalContent += "<p><strong>Dates:</strong> " + dataContext.STARTMONTH + " " + dataContext.STARTYEAR + " to " + dataContext.ENDMONTH + " " +dataContext.ENDYEAR + "</p>";
         modalContent += "<p><strong>City:</strong> " + dataContext.CITY + "</p>";
         modalContent += "<p><strong>Country:</strong> " + dataContext.COUNTRY + "</p>";
         modalContent += "<p><strong>Type:</strong> " + dataContext.TYPE + "</p>";
         modalContent += "<p><strong>Department:</strong> " + dataContext.DEPARTMENT + "</p>";
+        modalContent += "<p><strong>Description:</strong> " + dataContext.DESCRIPTION + "</p>";
         modalContent += "</div>";
 
         // Update the content of the modal
@@ -188,7 +204,8 @@ am5.ready(function () {
 
       });
       return am5.Bullet.new(root, {
-        sprite: circle
+        sprite: circle,
+        stacked: "auto"
       });
     });
 

@@ -59,7 +59,6 @@ $(document).ready(function() {
         
         // Collect form data
         var formData = {
-
             name: $('#name').val(),
             event: $('#event').val(),
             email: $('#email').val(),
@@ -90,10 +89,9 @@ $(document).ready(function() {
 
             // Send a POST request to the server to add the new order
             $.post('/formSubmitRoute', formData, function(response) {
+                console.log('form submitted !!!!!');
                 $('#databaseForm')[0].reset(); // Reset the form after submission
-
-                // Redirect to formConfirmation.html after successful submission
-                window.location.href = 'formConfirmation.html';
+                confSubmit();
             });
         });
     });
@@ -141,3 +139,15 @@ $(document).ready(function() {
             });
     }
 });
+
+/* Function to confirm form submission */
+function confSubmit() {
+    let text = "Are you sure you want to submit this form?";
+    if (confirm(text) == true) {
+      text = "Your form was submitted successfully.";
+    } else {
+      text = "Your form was not submitted.";
+    }
+    document.getElementById("confMessage").innerHTML = text;
+    window.scrollTo(0, document.body.scrollHeight);
+}

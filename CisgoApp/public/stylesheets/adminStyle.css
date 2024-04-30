@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    background-color: white;
+}
+
+header {
+    height: 13%;
+    text-align:left;
+    overflow: hidden;
+    background-color: rgba(30, 22, 86);
+    color: white;
+}
+
+header h1 {
+    display: inline-block;
+    padding: 1% 10% 10% 40%;
+    font-size: 250%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+header #logo {
+    width: 13%;
+    float: right;
+    display: block;
+    object-fit: cover;
+    margin: 1.5% 2% 3% 4%;
+}
+
+header #logout {
+    display: inline;
+    margin-left: 1%;
+    padding: .70% 1.25%;
+}
+
+.nav_buttons {
+    background-color: rgb(255,255,255,0.5);
+    border-bottom: 5px solid #666;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    padding: .4%;
+}
+
+/* all buttons */
+.btn {
+    border: none;
+    outline: 2px solid white;
+    padding: .70% 1.25%;
+    background-color: #007A87;
+    color: white;
+    cursor: pointer;
+    border-radius: 5%;
+  }
+  
+  /* when hovering over buttons */
+  .btn:hover {
+      background-color: #ddd;
+      color: #007A87;
+      outline: 2px solid #007A87;
+  }
+
+div {
+  display: block;
+  width: 95%;
+}
+
+/* format for tables */ 
+#pending-table {
+    width: 105%;
+    padding: .1%;
+}
+
+#approved-table {
+    width: 105%;
+    padding: .1%;
+}
+
+  /* bottom of page copyright statement */
+footer {
+    background-color: #666;
+    color: white;
+    text-align: center;
+    padding: 1%;
+    object-position: bottom;
+    width: 100%;
+    position: absolute;
+}

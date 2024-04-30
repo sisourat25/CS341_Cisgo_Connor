@@ -1,0 +1,29 @@
+IP 10.12.116.141
+Port 3000
+The project is deployed on the virtual machine (VM) with the IP 10.12.116.141 on port 3000. 
+To access the VM, you will need to contact the IS department and/or a professor to get 
+admin access through sudo. Once they add you as a user, you can ssh into the VM through your
+terminal when on campus wifi. Use the command...
+
+    ssh <UP USER ID>@campus.up.edu@10.12.116.141
+
+TO STOP THE PROJECT:
+    - find the PID of the node project listening on port 3000 using the command 
+        sudo lsof -i -P -n | grep LISTEN
+    - kill the process using the command 
+        kill -9 <PID>
+
+TO START THE PROJECT:
+    - once logged into the VM, exit out of your user directory
+    - go to sisourat25 directory
+    - go to deployed directory
+    - continue cd * until the project files are reached
+    - run the command
+        sudo npm start
+
+TO ACCESS THE DEPLOYED PROJECT:
+    - go to a web browser and enter 10.12.116.141:3000
+    - ONLY ACCESSIBLE WHEN USING CAMPUS wifi
+
+Users can only access the project when on campus wifi. The IS/IT department is still trying to make the
+port and VM public facing so anyone can access it on other networks.

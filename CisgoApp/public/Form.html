@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>New Location Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="stylesheets/form.css" rel="stylesheet" type="text/css" />
+  <!-- Link to CSS for Boostrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+    <header>
+      <h1>New Location Form</h1>
+      <a href="https://www.up.edu/"><img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo"></a>
+    </header>
+
+    <!-- navigation buttons, login and home -->
+    <div id="nav_buttons">
+      <button class="btn" type="button" id="login-button" onclick="document.location='/loginTest.html'">Admin Log in</button>
+      <button class="btn" type="button" id="home-button" onclick="document.location='index.html'">Home</button>
+    </div><br>
+
+    <div id="allOfForm">
+      <p class="instructions" id="first-instruct">
+        If you have a global educational opportunity you'd like to share, submit a
+        location here to be added to the map. 
+      </p>
+
+
+      <div class="container">
+        <p class="instructions">
+          Please fill out all required fields to submit a location for our map. 
+          All prompts below are likely to be displayed publicly. Follow specific instructions for each field, 
+          and submit when finished. After inputting the required information on the form, press submit. 
+          An administrator will then approve your submission, and your pin will show up on the map. 
+        </p>
+        <form id="databaseForm">
+          <p>*Contact Information: Please enter your contact information. This will be displayed. For the event title please specify the kind of work you were doing, the organization you worked for, or give a short title of your research project (e.g. "Agriculture Extension, Peace Corps, Mauritania, West Africa"; or "Research on biodiversity in Ecuador" or "UMD-NUR Partnership TISATD. Rutare Rwanda")</p>
+          <table>
+            <tr>          <!-- &nbsp; adds a space b/t things -->
+              <th><label for="name">Contact Name: &nbsp;</label></th>
+              <th><input type="text" id="name" name="name" placeholder="John Doe..." required maxlength="200"></th>
+              <th><label for="email">&nbsp;&nbsp;&nbsp;Contact Email: &nbsp;</label></th>
+              <th><input type="email" id="email" name="email" placeholder="email@up.edu..." required maxlength="200"></th>
+              <th><label for="emailC" id="emailCheckQ">Do you want to show your email publicly?</label></th>
+              <th><select name="emailCheck" id="emailCheck" > 
+                <option value="Yes" selected="select">Yes</option>
+                <option value="No">No</option>
+              </select></th>
+            </tr>
+            <tr><th><br></th></tr>
+
+            <tr>
+              <th><label for="event">Event Title: </label></th>
+              <th><input type="text" id="event" name="event" placeholder="Study Abroad..." required maxlength="200"></th>
+            </tr>
+            <tr><th><br></th></tr>
+          </table>
+              <p>
+                *Location: Please specify where this opportunity took place.
+                Type the city name or country so that the proper 
+                location name appears on screen.
+              </p>
+                  <label for="location">Location:</label><br>
+                  <input type="text" id="location" name="location" required>
+                  <button class="btn" type="button" id="searchLocation">Search Location</button>
+                  <div id="suggestions"></div><br>
+
+          </table>
+            <p>
+              *Opportunity Type: Please specify what type of opportunity took place.
+            </p>
+
+          <table>
+            <tr>
+              <th><label for="type">Opportunity Type:</label><br></th>
+              <th><select id="type" name="type" required>
+                <option value="Teaching">Teaching</option>
+                <option value="Research">Research</option>
+                <option value="Working">Working</option>
+                <option value="Volunteer">Volunteer</option>
+                <option value="Other">Other</option>
+              </select></th>
+            </tr>
+            <tr>
+              <th><label for="department">School Department: &nbsp;</label></th>
+                <th><select id="department" name="department" required>
+                  <option value="Shiley School of Engineering">Shiley School of Engineering</option>
+                  <option value="Pamplin School of Business">Pamplin School of Business</option>
+                  <option value="School of Education">School of Education</option>
+                  <option value="School of Nursing and Health Innovations">School of Nursing and Health Innovations</option>
+                  <option value="College of Arts and Sciences">College of Arts and Sciences</option>
+                  <option value="Other">Other</option>
+              </select></th>
+            </tr>
+            <tr><th><br></th></tr>
+          </table>
+            <p>
+               *Status: Please specify if this opportunity is currently ongoing
+               or has happened in the past. Please make sure end date does not occur before start date or vice versa. 
+            </p>
+          <table>
+            <tr>
+              <th><label for="status">Status: &nbsp;</label></th>
+              <th><select id="status" name="status" required>
+                <option value="Past">Past&nbsp;</option>
+                <option value="Ongoing">Ongoing&nbsp;</option>
+              </select>
+              <th>    </th>
+              <th><label for="startmonth">&nbsp;&nbsp;Start Month: &nbsp;</label></th>
+              <th><select id="month" name="month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select></th>
+              <th>  </th>
+              <th><label for="startyear">&nbsp;&nbsp;Start Year:&nbsp;</label></th>
+              <th><input type="year" id="startyear" name="startyear" maxlength="200"></th>
+              </th>
+
+              <th><label for="endmonth">&nbsp;&nbsp;End Month: &nbsp;</label></th>
+              <th><select id="month" name="month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select></th>
+              <th>  </th>
+              <th><label for="endyear">&nbsp;&nbsp;End Year:&nbsp;</label></th>
+              <th><input type="year" id="endyear" name="endyear" maxlength="200"></th>
+              </th>
+            </tr>
+          </table>
+          <br>
+          <label id="desc-label" for="description">Please give a short summary of the experience or project you were involved in. Think about including what you did, why you did it, and briefly explaining outcomes?
+            You might also include whether you were you working alone or with others, as well as with or for a particular government agency, NGO, university, religious organization, or corporation.
+            Finally, our mapping precision may not include small towns or rural villages in all countries. Be sure to specify the place you were during your experience abroad. </label>
+          <br><br>
+          <textarea id="description" name="description" rows="4" cols="50" placeholder="Start typing..." maxlength="2000" ></textarea>
+
+          <br><br>
+
+          <button id="submit_btn" class="btn" type="button submit" >Submit</button>
+          <br>
+          <br>
+          <br>
+          
+          <p id="confMessage"></p>
+
+        </form>
+      </div>
+      <br>
+
+    </div>
+
+
+    <footer>
+      <a class="footer">Copyright &copy; University of Portland. All Rights Reserved</a>
+      <br>
+      <a class="footer">Contact us: CISGOAdmin@up.edu</a>
+    </footer>
+
+    <!-- scripts -->
+    <script src="javascripts/formScript.js"></script>
+</body>
+</html>

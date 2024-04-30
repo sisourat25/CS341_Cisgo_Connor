@@ -100,24 +100,17 @@ am5.ready(function () {
       fill: am5.color(0x007A87)
     });
 
-
-    //Create clustered series to prevent overlap
-    /*var clusteredPointSeries = chart.series.push(
-      am5map.ClusteredPointSeries.new(root, {
-        minDistance: 30,
-        scatterDistance: 10,
-        scatterRadius: 10,
-        stopClusterZoom: 0.9
-      })
-    );
-*/
     // Create polygon series for possible destinations
     var pointSeries = chart.series.push(
       am5map.ClusteredPointSeries.new(root, {
-        minDistance: 15,
-        scatterDistance: 10,
-        scatterRadius: 10,
-        stopClusterZoom: 0,
+        //clustered pins
+        //minDistance: 15,
+        //scatterDistance: 10,
+        //scatterRadius: 10,
+        //stopClusterZoom: 0,
+
+        //grouped pins
+        groupIdField: "group",
         visible: true,
         tooltip: am5.Tooltip.new(root, {
           getText: function(ev) {
@@ -126,6 +119,49 @@ am5.ready(function () {
         })
       })
     );
+
+    pointSeries.set("clusteredBullet", function(root){
+      var container = am5.Container.new(root, {
+        cursorOverStyle: "pointer"
+      });
+
+      var circle1 = container.children.push(am5.Circle.new(root, {
+        radius: 8,
+        tooltipY: 0, 
+        fill: am5.color(0xEEAF30)
+      }));
+
+      var circle2 = container.children.push(am5.Circle.new(root, {
+        radius: 12, 
+        fillOpacity: 0.3,
+        tooltipY: 0,
+        fill: am5.color(0xEEAF30)
+      }));
+
+      var circle3 = container.children.push(am5.Circle.new(root, {
+        radius: 16, 
+        fillOpacity: 0.3,
+        tooltipY: 0,
+        fill: am5.color(0xEEAF30)
+      }));
+
+      var numberLable = container.children.push(am5.Label.new(root, {
+        centerX: am5.p50,
+        centerY: am5.p50,
+        fill: am5.color(0x1E1656),
+        populateText: true,
+        fontSize: "8",
+        text: "{value}"
+      }));
+
+      container.events.on("click", function(e) {
+        pointSeries.zoomToCluster(e.target.dataItem);
+      });
+
+      return am5.Bullet.new(root, {
+        sprite: container
+      });
+    });
 
     
     
@@ -140,7 +176,7 @@ am5.ready(function () {
         // Create a map point for each location
         var mapPoint = {
           geometry: { type: 'Point', coordinates: [location.COORLAT, location.COORLONG] },
-          title: location.CITY, // Use city name as title
+          title: location.EVENT, // Use city name as title
           id: location.NUMID, // Use unique ID for the point
           tooltipText: location.CITY, // Set tooltip text to city name
           info: location

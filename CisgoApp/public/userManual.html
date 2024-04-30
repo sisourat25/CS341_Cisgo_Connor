@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>User Manual</title>
+    <!-- Link to CSS for Boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link href="/stylesheets/userManual.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <header>
+        <h1 id="projTitle">Help</h1>
+        <a href="https://www.up.edu/"><img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo"></a>
+    </header>
+    <div class="nav_buttons">
+        <button class="btn" type="button" id="home" onclick="document.location='index.html'">Home</button>
+    </div>
+
+    <div class="wrapper">
+
+      <div class="faq">
+        <button class="accordion">
+          Map Navigation
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            - Click on any pin to zoom and see information at the location <br>
+            - Click on any continent and country to zoom in <br>
+            - Scroll or zoom in to zoom in <br>
+            - Home button on bottom right to reset map <br>
+
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Search Bar & Filters
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            - Search the location, event, or location you are looking for <br>
+            - Past filter will show you all the completed events <br>
+            - Ongoing filter will show you all the ongoing events <br>
+            - Show all will show you all the events <br>
+            - Click on information card to showcase location information <br>
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Adding a pin
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            - Click the add pin button <br>
+            - Read through the instructions and make sure all fields are filled <br>
+            - Click submit to submit your event <br>
+            - A pin is successfully submitted once you see a success bar on the bottom <br>
+          </p>
+        </div>
+      </div>
+      
+
+      <div class="faq">
+        <button class="accordion">
+          For Admin Only
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+
+        <div class="pannel">
+          <div class="faq">
+            <button class="accordion">
+              Admin
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p>
+                - Click the Log-in button <br>
+                - You will be prompted an email username and password (which should be given) <br>
+                - Once in the admin page, all pending and accepted submission will be shown <br>
+              </p>
+            </div>
+          </div>
+    
+          <div class="faq">
+            <button class="accordion">
+              Approving Submission
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p>
+    
+                - The first table are pending submissions <br>
+                - Check over the information to make sure all fields are valid (especially locations) <br>
+                - Click the check on the left and click Change to Approved button to approve <br>
+    
+              </p>
+            </div>
+          </div>
+          <div class="faq">
+            <button class="accordion">
+              Changing & Deleting Submissision
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p>
+              Changing <br> <br> 
+                - Fields are editable by clicking on the box <br>
+                - Click the check on the left and click Change to Pending to remove from approved <br><br>
+                
+              Deleting <br><br>
+                - Click the check on the left and press Delete Submitted  <br>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="accordion">
+          Team Members
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Connor Sisourath <br>
+            Aether Mocker <br>
+            Emma Giamello <br>
+            Isabella Horstmanshof <br>
+            Marshall Zhang <br>
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+
+          var pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+          } else {
+            pannel.style.display = "block";
+          }
+        });
+      }
+    </script>
+        <footer>
+            <a class="footer">Copyright &copy; University of Portland. All Rights Reserved</a>
+            <br>
+            <a class="footer">Contact us: CISGOAdmin@up.edu</a>
+          </footer>
+  </body>
+
+</html>

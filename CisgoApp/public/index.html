@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>CisgoMorning_UPGlobalContributions</title>
-  <!-- Link to CSS for Boostrap -->
+  <!-- Link to CSS for Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
@@ -12,8 +12,8 @@
 
 <body>
   <header>
+    <a href="https://www.up.edu/"><img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo"></a>
     <h1>UP Global Contributions</h1>
-    <img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo">
   </header>
 
 
@@ -24,8 +24,6 @@
       <div id="filter">
         
         <div class="add">
-          <button class="btn" id="btn-add" onclick="document.location='Form.html'">Add a pin</button>
-          <button class="btn" id="aboutUs" onclick="document.location='aboutUs.html'">About Us</button>
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a></div>
         <div class="searchBar">
           <input id="search" type="text" placeholder="Search...">
@@ -55,21 +53,22 @@
   </div>
 
   <button class="openbtn" onclick="openNav()">☰ Menu</button>
+  <button class="moreBtn" id="login-button" onclick="document.location='/loginTest.html'">Admin Login</button>
+  <button class="moreBtn" id="btn-add" onclick="document.location='userManual.html'">Help</button>
+  <button class="moreBtn" id="aboutUs" onclick="document.location='aboutUs.html'">About Us</button>
+  <button class="moreBtn" id="btn-add" onclick="document.location='Form.html'">Add a Pin</button>
+
   <div id="container">
     <div id="map">
       <div id="chartdiv">
-
       </div>
     </div>
   </div>
   <footer>
-    <a class="footer">Copyright &copy; Univerity of Portland. All Rights Reserved</a>
+    <a class="footer">Copyright &copy; University of Portland. All Rights Reserved</a>
     <br>
     <a class="footer">Contact us: CISGOAdmin@up.edu</a>
   </footer>
-
-
-
 
   <!-- JS plugins for Bootstrap -->
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

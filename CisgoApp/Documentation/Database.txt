@@ -1,0 +1,9 @@
+Username: root
+Password: password
+Database Name: CS341
+Table Name: CISGO
+
+The database is using mySQL on the same VM as the server which is hosting the deployed project. The IP
+address is 10.12.116.141 and is only accessible on campus wifi. Reference the .sql file for information
+the column names and types. It also contains a copy of the inputted data that was given to us as of April 29,
+2024. The .numbers files has more data, including that from the .sql file. 

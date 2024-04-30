@@ -5,7 +5,7 @@ html, body {
 
 /* the purple block at the top */
 header {
-  height: 100px;
+  height: 13%;
   overflow: hidden;
   background-color: #1E1656;
   color: white;
@@ -14,19 +14,19 @@ header {
 /* written title at the top */
 header h1 {
   display: inline-block;
-  padding: 20px 30px 95px 450px;
-  font-size: 50px;
+  padding: 2% 10% 10% 35%;
+  font-size: 250%; /* was 50px */ 
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: white;
 }
 
 /* university of portland logo in the corner */
 header #logo {
-    width: 192px;
+    width: 13%; /* was 192px */
     float: right;
     display: block;
     object-fit: cover;
-    margin: 15px 50px 15px 50px;
+    margin: 1.5% 2% 3% 4%;
 }
 
 p {
@@ -36,7 +36,7 @@ p {
 
 #container {
   width: 100%;
-  height: 100%;
+  height: 72%;
   position: relative;
   margin: auto;
   border: 5px solid #666;
@@ -54,10 +54,11 @@ p {
 }
 
 #chartdiv {
-  position: relative;
+  position: sticky;
+  top: 10px;
   width: 100%;
   height: 100%;
-  cursor: pointer;
+  cursor: grab;
 }
 
 /* buttons in sidebar */
@@ -65,6 +66,7 @@ p {
   font-size: 30px;
   font-family: sans-serif;
   position:absolute;
+  width: 100%;
 }
 
 .filter {
@@ -83,7 +85,6 @@ p {
   margin-right:auto;
   padding-top:10px;
 }
-
 
 /* sidebar resizable only from the right size. */
 #mySidebar {
@@ -124,8 +125,9 @@ p {
   right: 0px;
   font-size: 36px;
   margin-left: 50px;
-  color:#333;
+  color:#007A87;
 }
+
 
 .openbtn {
   font-size: 20px;
@@ -134,10 +136,23 @@ p {
   border: 2px solid white;
   color: white;
   padding: 8px;
-  border: none;
 }
 
 .openbtn:hover {
+  background-color: #004148;
+}
+
+.moreBtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: 007A87;
+  border: 2px solid white;
+  color: black;
+  padding: 8px;
+  float: right;
+}
+
+.moreBtn:hover {
   background-color: #004148;
 }
 
@@ -161,7 +176,7 @@ p {
 
 /* status buttons */
 #status_buttons {
-  margin-left: 10px;
+  margin-left: 10%;
 }
 
 .status {
@@ -175,10 +190,11 @@ p {
 .btn {
   border: none  ;
   outline: 2px solid white;
-  padding: 12px 16px;
+  padding: 10px 12px;
   background-color: #007A87;
   color: white;
   cursor: pointer;
+  margin-left: 2px;
 }
 
 /* when hovering over buttons */
@@ -226,15 +242,9 @@ footer {
   background-color: #666;
   color: white;
   text-align: center;
-  padding: 15px;
-  position: relative;
-  bottom: 0;
+  padding: 1%;
+  object-position: bottom;
   width: 100%;
-}
-
-.footer {
-  color: white;
-  text-align: center;
 }
 
 /* info popup when yo uclick on a pin */

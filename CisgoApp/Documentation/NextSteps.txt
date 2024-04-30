@@ -1,0 +1,16 @@
+All of the requested functionality from our client, Professor Santiago, is implemented. The next steps
+for continuing the project include...
+
+    - deploying the project to make it public facing with the following options
+        - follow up with the IS/IT department to make the current server public
+        - find a free hosting platform and free database service
+        - ask for funds and use a payed service
+
+    - adding in a feature where users can edit their pin
+        - numerical code is given to each user submission 
+        - user can log in using their email and numerical code 
+        - user can edit the data corresponding to that pin
+
+    - automated email service 
+        - email the admin with a new submission
+        - email the admin when a user has edited their pin

@@ -1,0 +1,105 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* background */
+body {
+  background-image: url('https://www.merocollege.com/wp-content/uploads/2017/11/9-1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* the purple block at the top */
+header {
+  height: 13%;
+  overflow: hidden;
+  background-color: #1E1656;
+  color: white;
+}
+
+/* "About Us title" */
+header h1 {
+  display: inline-block;
+  padding: 2% 20% 20% 45%;
+  font-size: 250%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
+}
+
+/* university of portland logo in the corner */
+header #logo {
+  width: 13%;
+  float: right;
+  display: block;
+  object-fit: cover;
+  margin: 1.5% 2% 3% 4%;
+}
+
+/* form container */
+.nav_buttons {
+  background-color: rgb(255,255,255,0.5);
+  border-bottom: 5px solid #666;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  left: 0;
+  right: 0;
+  padding: .35%;
+}
+
+#home {
+  display: inline;
+  margin-left: 2%;
+  padding: .70% 1.25%;
+}
+
+
+/* all buttons */
+.btn {
+  border: none  ;
+  outline: 2px solid white;
+  padding: .70% 1.25%;
+  background-color: #007A87;
+  color: white;
+  cursor: pointer;
+  border-radius: 5%;
+}
+
+/* when hovering over buttons */
+.btn:hover {
+  background-color: #ddd;
+  color: #007A87;
+  outline: 2px solid #007A87;
+}
+
+#thank-you #content {
+  padding-bottom: 80%;
+}
+
+p {
+  margin-left: 6em;
+  margin-right: 6em;
+  margin-top: 4em;
+  background-color:rgba(255, 255, 255, 0.877);
+  color: black;
+  padding: 3.5%;
+  text-align: center;
+}
+
+.blurb {
+  font-size: larger;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* bottom of page copyright statement */
+footer {
+  background-color: #666;
+  color: white;
+  text-align: center;
+  padding: 1%;
+  object-position: bottom;
+  width: 100%;
+}

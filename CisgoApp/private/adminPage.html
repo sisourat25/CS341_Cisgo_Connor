@@ -15,10 +15,14 @@
 
 <body>
   <header>
-    <button type="button" id="logout" onclick="document.location='index.html'"> Logout</button>
-    <img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo">
+    
+    <h1>Add a new pin</h1>
+    <a href="https://www.up.edu/"><img class="img-fluid" id="logo" src="images/upWhiteLogo.png" alt="Logo"></a>
   </header>
 
+  <div class="nav_buttons">
+    <button type="button" class="btn" id="logout" onclick="document.location='index.html'"> Logout</button> 
+  </div>
 
   <hr class="thick-hr">
 
@@ -28,33 +32,40 @@
 
 
     <div>
-      <h1>Add a new pin</h1>
+      
       <p>Select an item from the list below to archive or delete an item.
         <br>You can also press add on the right to add a new opportunity.</p>
     </div>
 
 
     <!-- Add a button here -->
-    <button id="approveButton">Approve Selected</button>
-    <button id="deletePendingButton">Delete Selected</button>
+    <button class="btn" id="approveButton">Change to Approved</button>
+    <button class="btn" id="deletePendingButton">Delete Selected</button>
+
+
     
     <!-- Add the Tabulator table here -->
-    <div id="pending-table"></div>
+    <div class="table" id="pending-table"></div>
 
     <br><br><br>
 
 
     <!-- Add a button here -->
-    <button id="pendingButton">Move Selected to Pending</button>
-    <button id="deleteApprovedButton">Delete Selected</button>
+
+    <button class="btn" id="pendingButton">Change to Pending</button>
+    <button class="btn" id="deleteApprovedButton">Delete Selected</button>
+
 
     
     <!-- Add the Tabulator table here -->
-    <div id="approved-table"></div>
+    <div class="table" id="approved-table"></div>
     
     </main>
 
   </div>
+
+  <br><br><br><br><br><br>
+  <br><br><br><br><br><br>
 
   <footer>Copyright &copy; University of Portland. All Rights Reserved</footer>
 
@@ -63,7 +74,7 @@
 
 
 
-  <!-- Include JavaScript file -->
+  <!-- Include your custom JavaScript file -->
   <script src="javascripts/adminTablePending.js"></script>
   <script src="javascripts/adminTableApproved.js"></script>
 </body>
